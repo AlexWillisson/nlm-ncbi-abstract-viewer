@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { articles } from "../articles";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ArticlesService } from '../articles.service';
+
+import { Article } from '../article';
 
 @Component({
   selector: 'app-articles-list',
@@ -8,11 +11,19 @@ import { articles } from "../articles";
   styleUrls: ['./articles-list.component.css']
 })
 export class ArticlesListComponent implements OnInit {
-  articles = articles;
+  articles: Article[] = [];
 
-  constructor() { }
+  constructor(
+    private articleService: ArticlesService) {
+  }
 
   ngOnInit(): void {
+    this.getArticles();
+  }
+
+  getArticles(): void {
+    this.articleService.getArticles()
+      .subscribe(articles => this.articles = articles);
   }
 
 }
