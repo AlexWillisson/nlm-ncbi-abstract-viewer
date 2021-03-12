@@ -14,7 +14,6 @@ export class ArticlesService {
   getArticles(): Observable<ArticleData[]> {
     return this.http.get<ArticleData[]>(this.articlesUrl)
       .pipe(
-        tap(_ => console.log('fetched articles')),
         catchError(this.handleError<ArticleData[]>('getArticles', []))
       );
   }
