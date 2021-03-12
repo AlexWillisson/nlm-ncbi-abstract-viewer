@@ -8,7 +8,10 @@
       {{ section.body }}
     </div>
     <ng-template #elseBlock>
-      <span class='abstract-section-label'>{{section.label}}: </span>{{section.body}}
+      <div class='abstract-section'>
+        <span class='abstract-section-label'>{{section.label}}: </span>
+        {{ section.body }}
+      </div>
     </ng-template>
   </div>
 </ng-template>
