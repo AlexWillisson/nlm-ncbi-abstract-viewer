@@ -1,8 +1,9 @@
 <h1>Articles List:</h1>
 <div *ngFor="let article of articles">
-  <h2>{{ article.title }}</h2>
+  <h2><a href='https://pubmed.ncbi.nlm.nih.gov/{{article.id}}'>{{ article.title }}</a></h2>
   <div>
     <h3>Abstract</h3>
     {{ article.abstract }}
+    <app-abstract [sections]="article.abstract"></app-abstract>
   </div>
 </div>
