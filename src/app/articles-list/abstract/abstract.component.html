@@ -1,3 +1,6 @@
 <p>are abstracts really working?</p>
-{{ sections }}
+<div *ngFor="let section of sections">
+  <span class='abstract-section-label'>{{section.label}}: </span>{{section.body}}
+</div>
+<!-- {{ sections }} -->
 <p>was there an abstract up there?</p>
