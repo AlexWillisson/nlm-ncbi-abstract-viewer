@@ -13,6 +13,7 @@ export class AbstractComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.sections);
   }
 
 }

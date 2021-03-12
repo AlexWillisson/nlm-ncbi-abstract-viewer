@@ -1,6 +1,13 @@
-<p>are abstracts really working?</p>
-<div *ngFor="let section of sections">
-  <span class='abstract-section-label'>{{section.label}}: </span>{{section.body}}
+<div *ngIf='sections === undefined; else elseBlock'>
+  No abstract available
 </div>
-<!-- {{ sections }} -->
-<p>was there an abstract up there?</p>
+<ng-template #elseBlock>
+  <div *ngFor='let section of sections'>
+    <div *ngIf='section.label === undefined; else elseBlock'>
+      {{ section.body }}
+    </div>
+    <ng-template #elseBlock>
+      <span class='abstract-section-label'>{{section.label}}: </span>{{section.body}}
+    </ng-template>
+  </div>
+</ng-template>
