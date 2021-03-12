@@ -2,6 +2,7 @@ export interface ArticleData {
   id: string;
   title: string;
   abstract?: AbstractSection[];
+  externalArticleId: number;
 }
 
 export interface AbstractSection {
