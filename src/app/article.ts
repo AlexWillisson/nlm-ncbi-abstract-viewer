@@ -1,5 +1,10 @@
-export interface Article {
-  id: number;
+export interface ArticleData {
+  id: string;
   title: string;
-  abstract: string;
+  abstract?: AbstractSection[];
+}
+
+export interface AbstractSection {
+  label?: string,
+  body: string
 }

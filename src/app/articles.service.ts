@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Article } from './article';
+import { ArticleData, AbstractSection } from './article';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +11,11 @@ import { Article } from './article';
 export class ArticlesService {
   private articlesUrl = 'http://54.165.151.163:3000/';
 
-  getArticles(): Observable<Article[]> {
-    return this.http.get<Article[]>(this.articlesUrl)
+  getArticles(): Observable<ArticleData[]> {
+    return this.http.get<ArticleData[]>(this.articlesUrl)
       .pipe(
         tap(_ => console.log('fetched articles')),
-        catchError(this.handleError<Article[]>('getArticles', []))
+        catchError(this.handleError<ArticleData[]>('getArticles', []))
       );
   }
 
