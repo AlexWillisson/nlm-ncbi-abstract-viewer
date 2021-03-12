@@ -8,3 +8,8 @@ export interface AbstractSection {
   label?: string,
   body: string
 }
+
+export interface Article {
+  data: ArticleData,
+  hideAbstract: boolean
+}

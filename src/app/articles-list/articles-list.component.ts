@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ArticlesService } from '../articles.service';
 
-import { ArticleData } from '../article';
+import { ArticleData, Article } from '../article';
 
 @Component({
   selector: 'app-articles-list',
@@ -11,7 +10,7 @@ import { ArticleData } from '../article';
   styleUrls: ['./articles-list.component.css']
 })
 export class ArticlesListComponent implements OnInit {
-  articles: ArticleData[] = [];
+  articles: Article[] = [];
 
   constructor(
     private articleService: ArticlesService) {
@@ -24,8 +23,17 @@ export class ArticlesListComponent implements OnInit {
   getArticles(): void {
     this.articleService.getArticles()
       .subscribe(articles => {
-        this.articles = articles
+        this.articles = articles.map((articleData: ArticleData) =>
+        {
+          return {
+            data: articleData,
+            hideAbstract: true
+          }
+        });
       });
   }
 
+  toggleAbstract(article: Article) {
+    article.hideAbstract = ! article.hideAbstract;
+  }
 }
