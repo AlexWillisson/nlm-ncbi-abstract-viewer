@@ -1,15 +1,19 @@
 <h1>Articles List:</h1>
-<div *ngFor="let article of articles" class='article'>
-  <h2>
-    <a href='https://pubmed.ncbi.nlm.nih.gov/{{article.data.id}}'>
-      <mat-icon>link</mat-icon>
-    </a>
-    <span class='article-title' (click)='toggleAbstract(article)'>
-      {{ article.data.title }}
-    </span>
-  </h2>
-  <div [hidden]=article.hideAbstract>
-    <h3>Abstract</h3>
-    <app-abstract [sections]="article.data.abstract"></app-abstract>
+<div *ngFor="let article of articles">
+  <div class='article'>
+    <h2>
+      <a href='https://pubmed.ncbi.nlm.nih.gov/{{article.data.id}}'>
+        <mat-icon>link</mat-icon>
+      </a>
+      <span class='article-title' (click)='toggleAbstract(article)'>
+        {{ article.data.title }}
+      </span>
+    </h2>
+    <div [hidden]=article.hideAbstract>
+      <div class='abstract'>
+        <app-abstract [sections]="article.data.abstract"></app-abstract>
+      </div>
+    </div>
   </div>
+  <mat-divider></mat-divider>
 </div>
