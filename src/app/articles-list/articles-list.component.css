@@ -1,10 +1,20 @@
 .article {
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
 
 .abstract {
   border: solid thin black;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-bottom: 1rem;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 1em;
+}
+
+.article-date {
+  color: #888;
+  padding-bottom: .25em;
+}
+
+.article-headline {
+  font-size: 1.5em;
+  font-weight: bolder;
 }

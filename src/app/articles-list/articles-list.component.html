@@ -1,14 +1,17 @@
 <h1>Articles List:</h1>
-<div *ngFor="let article of articles">
+<div *ngFor="let article of articlesByDate()">
   <div class='article'>
-    <h2>
+    <div class='article-headline'>
       <a href='https://pubmed.ncbi.nlm.nih.gov/{{article.data.id}}'>
         <mat-icon>link</mat-icon>
       </a>
       <span class='article-title' (click)='toggleAbstract(article)'>
         {{ article.data.title }}
       </span>
-    </h2>
+    </div>
+    <div class='article-date'>
+      Last updated: {{ article.data.date | date }}
+    </div>
     <div [hidden]=article.hideAbstract>
       <div class='abstract'>
         <app-abstract [sections]="article.data.abstract"></app-abstract>

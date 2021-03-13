@@ -23,8 +23,7 @@ export class ArticlesListComponent implements OnInit {
   getArticles(): void {
     this.articleService.getArticles()
       .subscribe(articles => {
-        this.articles = articles.map((articleData: ArticleData) =>
-        {
+        this.articles = articles.map((articleData: ArticleData) => {
           return {
             data: articleData,
             hideAbstract: true
@@ -34,6 +33,12 @@ export class ArticlesListComponent implements OnInit {
   }
 
   toggleAbstract(article: Article) {
-    article.hideAbstract = ! article.hideAbstract;
+    article.hideAbstract = !article.hideAbstract;
+  }
+
+  articlesByDate(): Article[] {
+    return this.articles.sort((articleA: Article, articleB: Article) => {
+      return (articleA.data.date < articleB.data.date) ? 1 : -1;
+    });
   }
 }
