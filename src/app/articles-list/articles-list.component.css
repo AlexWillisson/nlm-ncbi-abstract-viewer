@@ -18,3 +18,11 @@
   font-size: 1.5em;
   font-weight: bolder;
 }
+
+.article-link {
+  visibility: hidden;
+}
+
+.article-headline:hover > .article-link {
+  visibility: visible;
+}
