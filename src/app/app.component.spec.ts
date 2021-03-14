@@ -26,10 +26,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('nlm-ncbi-abstract-viewer');
   });
 
-  it('should render title', () => {
+  it('should render canary', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('nlm-ncbi-abstract-viewer app is running!');
+    expect(compiled.querySelector('.canary').textContent).toContain('loaded');
   });
 });
