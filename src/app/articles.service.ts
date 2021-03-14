@@ -9,7 +9,7 @@ import { ArticleData } from './article';
   providedIn: 'root'
 })
 export class ArticlesService {
-  private articlesUrl = 'http://54.165.151.163:3000/';
+  private articlesUrl = 'https://abstracts.willisson.org:3000/';
 
   getArticles(): Observable<ArticleData[]> {
     return this.http.get<ArticleData[]>(this.articlesUrl)
